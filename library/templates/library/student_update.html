@@ -1,0 +1,36 @@
+{% extends "library/base.html" %}
+
+{% block base %}
+
+<h3 style="text-align: center;" class="mt-4">Student Update</h3>
+<hr>
+
+<div style="margin-top: -140px;">
+    <form method="POST" class="custom-addbook">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for field in userForm %}
+                <tr>
+                    <td>{{ field.label_tag }}</td>
+                    <td>{{ field }}</td>
+                </tr>
+                <br>
+            {% endfor %}
+            {% for field in studentForm %}
+                <tr>
+                    <td>{{ field.label_tag }}</td>
+                    <td>{{ field }}</td>
+                </tr>
+                <br>
+            {% endfor %}
+        </table>
+        <br>
+        <input type="submit" class="addbookbutton" value="Update">
+    </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block title %} 
+| About
+{% endblock %}
+
+{% block base %}
+
+<p class="p-3" style="font-size: 20px;">This is a library management system app.</p>
+<p style="font-size: 20px; margin-left:400px;">Developer.</p>
+
+<div class="bs-example" style="margin-left: 400px;">
+    <div class="card" style="width: 300px;">
+        <img src="{% static '/images/ishwar.jpeg' %}" class="card-img-top" alt="image">
+        <div class="card-body text-center">
+            <h5 class="card-title">Ishwar Shelke</h5>
+            <p class="card-text">Hello there, I am a Third Year Undergrad at PICT and I aspire to be a FullStack Developer.</p>
+            <a href="https://www.linkedin.com/in/ishwar-shelke-4174b51a6/" target="_blank" class="btn btn-primary stretched-link">View Profile</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

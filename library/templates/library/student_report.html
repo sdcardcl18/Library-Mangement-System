@@ -1,0 +1,37 @@
+{% extends "library/base.html" %}
+
+{% block title %}
+| Student Report
+{% endblock %}
+
+{% block base %}
+
+<h3 style="text-align: center;" class="mt-4">Student Report</h3>
+<hr>
+
+<table style="width:90%; margin-left:70px">
+
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Enrollment Number</th>
+        <th>Branch</th>
+        <tr></tr>
+    </tr>
+
+    {% for key, value in userstud.items %}
+    <tr>
+        <td>{{ value.first_name }}</td>
+        <td>{{ value.last_name }}</td>
+        <td>{{ value.email }}</td>
+        <td>{{ value.enrollment_number }}</td>
+        <td>{{ value.branch }}</td>
+        <td><a href="{% url 'library:update_student' pk=value.id %}" class="btn btn-warning">Update</a></td>
+        <td><a href="{% url 'library:delete_student' pk=value.id %}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}        
+
+</table>
+
+{% endblock %}

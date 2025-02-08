@@ -1,0 +1,37 @@
+{% extends "library/base.html" %}
+
+{% block title %} 
+| Books Issued
+{% endblock %}
+
+{% block base %}
+
+<h3 class="text-center">Books you have issued so far</h3>
+<hr>
+
+<table style="width:90%; margin-left:70px">
+    {% if issuedbooks|length == 0 %}
+        <p>You havent issued any book yet...</p>
+    {% else %}
+        <tr>
+            <th>Book Name</th>
+            <th>Author Name</th>    
+            <th>Category</th>
+            <th>ISBN</th>
+            <th>Issued Date</th>
+            <th>Return</th>
+        </tr>
+        {% for issuedbook in issuedbooks %}
+            <tr>
+                <td>{{ issuedbook.book_name }}</td>
+                <td>{{ issuedbook.author_name }}</td>
+                <td>{{ issuedbook.category }}</td>
+                <td>{{ issuedbook.isbn_number }}</td>
+                <td>{{ issuedbook.issued_date }}</td>   
+                <td><a href="{% url 'library:return_book' pk=issuedbook.pk %}" class="btn btn-outline-dark">Return</a></td> 
+            </tr>
+        {% endfor %}
+    {% endif %}
+</table>
+
+{% endblock %}

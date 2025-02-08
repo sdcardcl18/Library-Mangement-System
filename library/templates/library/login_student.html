@@ -1,0 +1,33 @@
+{% extends "library/base.html" %}
+
+{% block title %} 
+| Login Student
+{% endblock %}
+
+{% block base %}
+
+<div class="container login-container" style="margin-left: 322px;">
+    <div class="row">
+        <div class="col-md-5 login-form-1">
+            <h3>Login</h3>
+            {% if flag == False %}
+                <p style="margin-left: 110px;">Invalid Credentials</p>
+            {% endif %}
+            <form method="POST" action="{% url 'library:student_login' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="username" placeholder="Your Username..."/>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Your Password..."/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" style="margin-left: 20px;" value="Login" />
+                    <a href="{% url 'library:register' %}" class="ForgetPwd">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

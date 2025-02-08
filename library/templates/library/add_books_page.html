@@ -1,0 +1,34 @@
+{% extends "library/base.html" %}
+
+{% block title %}
+| Add Books
+{% endblock %}
+
+{% block base %}
+
+{% if flag == True %}
+    <div style="margin-top:50px;">
+        <p style="margin-left: 460px;">Book Added Successfully</p>
+    </div>
+{% endif %}
+
+<form method="POST" class="p-1 custom-addbook mt-4">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for field in book_form %}
+            <tr>
+                <td>{{ field.label_tag }}</td>
+                <td>{{ field }}</td>
+            </tr>
+            <br>
+        {% endfor %}
+    </table>
+    <br>
+    <input type="submit" class="addbookbutton" value="Add Book">
+</form>
+
+{% endblock %}
